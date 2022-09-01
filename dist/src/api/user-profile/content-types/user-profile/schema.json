@@ -1,0 +1,42 @@
+{
+    "kind": "collectionType",
+    "collectionName": "user_profiles",
+    "info": {
+        "singularName": "user-profile",
+        "pluralName": "user-profiles",
+        "displayName": "user profile",
+        "description": ""
+    },
+    "options": {
+        "draftAndPublish": false
+    },
+    "pluginOptions": {},
+    "attributes": {
+        "tagline": {
+            "type": "string"
+        },
+        "body": {
+            "type": "text"
+        },
+        "profile_picture": {
+            "type": "media",
+            "multiple": false,
+            "required": false,
+            "allowedTypes": [
+                "images"
+            ]
+        },
+        "posts": {
+            "type": "relation",
+            "relation": "oneToMany",
+            "target": "api::post.post",
+            "mappedBy": "author"
+        },
+        "comments": {
+            "type": "relation",
+            "relation": "oneToMany",
+            "target": "api::comment.comment",
+            "mappedBy": "commenter"
+        }
+    }
+}
